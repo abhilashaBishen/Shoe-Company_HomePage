@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); font-family: 'Courier New', Courier, monospace;">
+    <nav class="bg-white shadow-md">
+        <ul class="sidebar hidden fixed top-0 right-0 h-screen w-64 z-50 bg-white backdrop-blur-md shadow-lg flex flex-col">
+            <li onClick="hideSidebar()"><a href="#" class="block w-full text-black px-6 py-3 hover:bg-gray-200"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="#blog" class="block w-full text-black px-6 py-3 hover:bg-gray-200">Blog</a></li>
+            <li><a href="#ccc" class="block w-full text-black px-6 py-3 hover:bg-gray-200">ccc</a></li>
+            <li><a href="#dd" class="block w-full text-black px-6 py-3 hover:bg-gray-200">dd</a></li>
+            <li><a href="#ee" class="block w-full text-black px-6 py-3 hover:bg-gray-200">ee</a></li>
+            <li><a href="#fff" class="block w-full text-black px-6 py-3 hover:bg-gray-200">fff</a></li>
+        </ul>
+        <ul class="flex justify-end items-center">
+            <li><a href="#" class="block text-black px-6 py-3">abh</a></li>
+            <li class="hidden lg:block"><a href="#" class="block text-black px-6 py-3">ccc</a></li>
+            <li class="hidden lg:block"><a href="#" class="block text-black px-6 py-3">dd</a></li>
+            <li class="hidden lg:block"><a href="#" class="block text-black px-6 py-3">blog</a></li>
+            <li class="hidden lg:block"><a href="#" class="block text-black px-6 py-3">ee</a></li>
+            <li class="hidden lg:block"><a href="#" class="block text-black px-6 py-3">fff</a></li>
+            <li class="menu-button lg:hidden" onClick="showSidebar()"><a href="#" class="block text-black px-6 py-3"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('hidden');
+            sidebar.classList.add('flex');
+        }
+
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('hidden');
+            sidebar.classList.remove('flex');
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+

@@ -8,22 +8,86 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class ="text-white" style="background-color: rebeccapurple">
-    <header
-      class="section-container flex items-center justify-between fixed w-full left-[50%] -translate-x-[50%] bg-black/70 backdrop-blur-sm z-10"
+  <header
+  class="section-container flex items-center justify-between fixed w-full left-[50%] -translate-x-[50%] bg-black/70 backdrop-blur-sm z-10"
+>
+  <a href="#">
+    <img class="w-24 md:w-32" src="./images/logo.png" alt="logo" />
+    <p class="text-xs -mt-6 md:text-sm md:-mt-8">The Shoe Company</p>
+  </a>
+  <nav class="hidden md:block space-x-6 lg:space-x-8 lg:text-2xl">
+    <a class="font-bold" href="#hero">Home</a>
+    <a class="font-bold" href="#how-it-works">How It Works?</a>
+    <a class="font-bold" href="#about">About</a>
+    <a class="font-bold" href="#testimonials">Testimonials</a>
+    <a class="font-bold" href="#contact">Contact Us</a>
+  </nav>
+  <button id="hamburger" class="text-5xl md:hidden">≡</button>
+
+  <!-- Dropdown Menu -->
+  <div
+    id="dropdownMenu"
+    class="hidden fixed top-0 right-0 bg-black/70 shadow-lg transition-transform transform translate-x-full md:hidden overflow-y-auto z-[999]"
+    style="height: 100vh; width: 50vw;"
+  >
+    <!-- Close Button -->
+    <button
+      id="closeButton"
+      class="text-3xl text-white absolute top-4 right-4" style="padding:10px"
     >
-      <a href="#">
-        <img class="w-24 md:w-32" src="./images/logo.png" alt="logo" />
-        <p class="text-xs -mt-6 md:text-sm md:-mt-8">The Shoe Company</p>
-      </a>
-      <nav class="hidden md:block space-x-6 lg:space-x-8 lg:text-2xl">
-        <a class="font-bold" href="#hero">Home</a>
-        <a class="font-bold" href="#how-it-works">How It Works?</a>
-        <a class="font-bold" href="#about">About</a>
-        <a class="font-bold" href="#testimonials">Testimonials</a>
-        <a class="font-bold" href="#contact">Contact Us</a>
-      </nav>
-      <button class="text-5xl md:hidden">≡</button>
-    </header>
+      ✕
+    </button>
+
+    <nav class="flex flex-col items-start justify-start gap-4 p-4 mt-10" style="align-items: flex-start; justify-content: flex-start; gap:20px ;padding:10px">
+      <a class="menu-link font-bold text-xl hover:text-gray-300" href="#hero"  style="margin-top: 100px;">Home</a>
+      <a class="menu-link font-bold text-xl hover:text-gray-300" href="#how-it-works">How It Works?</a>
+      <a class="menu-link font-bold text-xl hover:text-gray-300" href="#about">About</a>
+      <a class="menu-link font-bold text-xl hover:text-gray-300" href="#testimonials">Testimonials</a>
+      <a class="menu-link font-bold text-xl hover:text-gray-300" href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const closeButton = document.getElementById("closeButton");
+  const menuLinks = document.querySelectorAll(".menu-link");
+
+  // Toggle dropdown menu on hamburger click
+  hamburger.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
+    dropdownMenu.classList.toggle("translate-x-full");
+  });
+
+  // Hide dropdown menu on close button click
+  closeButton.addEventListener("click", () => {
+    dropdownMenu.classList.add("hidden");
+    dropdownMenu.classList.add("translate-x-full");
+  });
+
+  // Hide dropdown menu when clicking a menu link
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      dropdownMenu.classList.add("hidden");
+      dropdownMenu.classList.add("translate-x-full");
+    });
+  });
+
+  // Hide dropdown menu when clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      !dropdownMenu.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      dropdownMenu.classList.add("hidden");
+      dropdownMenu.classList.add("translate-x-full");
+    }
+  });
+</script>
+
+
+     
     <section
       id="hero"
       class="bg-[url('./images/hero-background.png')] bg-cover md:bg-contain bg-no-repeat bg-right pt-36 section-container"
